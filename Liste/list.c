@@ -21,6 +21,7 @@ lista_t* creazione_lista() {
     printf("Allocazione della lista fallita\n");
     return NULL;
   }
+  lista->testa = NULL;
   return lista;
 }
 
@@ -70,6 +71,8 @@ nodo_t* creazione_nodo(int dato) {
     return NULL;
   }
   nodo->dato = dato;
+  nodo->precedente = NULL;
+  nodo->successivo = NULL;
   return nodo;
 }
 
@@ -211,6 +214,7 @@ void rimozione_con_ricerca(lista_t* lista, int valore) {
             }
             free(p);
             trovato = true;
+            break;
           }
         }
       }
